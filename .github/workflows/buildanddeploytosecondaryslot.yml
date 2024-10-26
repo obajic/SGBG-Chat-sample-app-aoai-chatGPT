@@ -1,5 +1,4 @@
-name: Build and deploy Python app to Azure Web App - sample-app-github-cd
-
+name: Build and deploy Python app to Azure Web App - secondary slot
 on:
   push:
     branches:
