@@ -41,7 +41,7 @@ class _UiSettings(BaseSettings):
         env_ignore_empty=True
     )
 
-    title: str = "Contoso"
+    title: str = "Scrum Gathering Belgrade 2024"
     logo: Optional[str] = None
     chat_logo: Optional[str] = None
     chat_title: str = "Start chatting"
@@ -256,10 +256,10 @@ class _AzureSearchSettings(BaseSettings, DatasourcePayloadConstructor):
     use_semantic_search: bool = Field(default=False, exclude=True)
     semantic_search_config: str = Field(default="", serialization_alias="semantic_configuration")
     content_columns: Optional[List[str]] = Field(default=None, exclude=True)
-    vector_columns: Optional[List[str]] = Field(default=None, exclude=True)
-    title_column: Optional[str] = Field(default=None, exclude=True)
-    url_column: Optional[str] = Field(default=None, exclude=True)
-    filename_column: Optional[str] = Field(default=None, exclude=True)
+    vector_columns: Optional[List[str]] = Field(default(None, exclude=True)
+    title_column: Optional[str] = Field(default(None, exclude=True)
+    url_column: Optional[str] = Field(default(None, exclude=True)
+    filename_column: Optional[str] = Field(default(None, exclude=True)
     query_type: Literal[
         'simple',
         'vector',
@@ -269,14 +269,14 @@ class _AzureSearchSettings(BaseSettings, DatasourcePayloadConstructor):
         'vector_semantic_hybrid',
         'vectorSemanticHybrid'
     ] = "simple"
-    permitted_groups_column: Optional[str] = Field(default=None, exclude=True)
+    permitted_groups_column: Optional[str] = Field(default(None, exclude=True)
     
     # Constructed fields
     endpoint: Optional[str] = None
     authentication: Optional[dict] = None
     embedding_dependency: Optional[dict] = None
     fields_mapping: Optional[dict] = None
-    filter: Optional[str] = Field(default=None, exclude=True)
+    filter: Optional[str] = Field(default(None, exclude=True)
     
     @field_validator('content_columns', 'vector_columns', mode="before")
     @classmethod
@@ -370,10 +370,10 @@ class _AzureCosmosDbMongoVcoreSettings(
     database: str = Field(serialization_alias="database_name")
     container: str = Field(serialization_alias="container_name")
     content_columns: Optional[List[str]] = Field(default=None, exclude=True)
-    vector_columns: Optional[List[str]] = Field(default=None, exclude=True)
-    title_column: Optional[str] = Field(default=None, exclude=True)
-    url_column: Optional[str] = Field(default=None, exclude=True)
-    filename_column: Optional[str] = Field(default=None, exclude=True)
+    vector_columns: Optional[List[str]] = Field(default(None, exclude=True)
+    title_column: Optional[str] = Field(default(None, exclude=True)
+    url_column: Optional[str] = Field(default(None, exclude=True)
+    filename_column: Optional[str] = Field(default(None, exclude=True)
     
     # Constructed fields
     authentication: Optional[dict] = None
@@ -438,11 +438,11 @@ class _ElasticsearchSettings(BaseSettings, DatasourcePayloadConstructor):
     index: str = Field(serialization_alias="index_name")
     query_type: Literal['simple', 'vector'] = "simple"
     content_columns: Optional[List[str]] = Field(default=None, exclude=True)
-    vector_columns: Optional[List[str]] = Field(default=None, exclude=True)
-    title_column: Optional[str] = Field(default=None, exclude=True)
-    url_column: Optional[str] = Field(default=None, exclude=True)
-    filename_column: Optional[str] = Field(default=None, exclude=True)
-    embedding_model_id: Optional[str] = Field(default=None, exclude=True)
+    vector_columns: Optional[List[str]] = Field(default(None, exclude=True)
+    title_column: Optional[str] = Field(default(None, exclude=True)
+    url_column: Optional[str] = Field(default(None, exclude=True)
+    filename_column: Optional[str] = Field(default(None, exclude=True)
+    embedding_model_id: Optional[str] = Field(default(None, exclude=True)
     
     # Constructed fields
     authentication: Optional[dict] = None
@@ -510,11 +510,11 @@ class _PineconeSettings(BaseSettings, DatasourcePayloadConstructor):
     api_key: str = Field(exclude=True)
     index_name: str
     query_type: Literal["vector"] = "vector"
-    content_columns: Optional[List[str]] = Field(default=None, exclude=True)
-    vector_columns: Optional[List[str]] = Field(default=None, exclude=True)
-    title_column: Optional[str] = Field(default=None, exclude=True)
-    url_column: Optional[str] = Field(default=None, exclude=True)
-    filename_column: Optional[str] = Field(default=None, exclude=True)
+    content_columns: Optional[List[str]] = Field(default(None, exclude=True)
+    vector_columns: Optional[List[str]] = Field(default(None, exclude=True)
+    title_column: Optional[str] = Field(default(None, exclude=True)
+    url_column: Optional[str] = Field(default(None, exclude=True)
+    filename_column: Optional[str] = Field(default(None, exclude=True)
     
     # Constructed fields
     authentication: Optional[dict] = None
@@ -579,11 +579,11 @@ class _AzureMLIndexSettings(BaseSettings, DatasourcePayloadConstructor):
     name: str
     version: str
     project_resource_id: str = Field(validation_alias="AZURE_ML_PROJECT_RESOURCE_ID")
-    content_columns: Optional[List[str]] = Field(default=None, exclude=True)
-    vector_columns: Optional[List[str]] = Field(default=None, exclude=True)
-    title_column: Optional[str] = Field(default=None, exclude=True)
-    url_column: Optional[str] = Field(default=None, exclude=True)
-    filename_column: Optional[str] = Field(default=None, exclude=True)
+    content_columns: Optional[List[str]] = Field(default(None, exclude=True)
+    vector_columns: Optional[List[str]] = Field(default(None, exclude=True)
+    title_column: Optional[str] = Field(default(None, exclude=True)
+    url_column: Optional[str] = Field(default(None, exclude=True)
+    filename_column: Optional[str] = Field(default(None, exclude=True)
     
     # Constructed fields
     fields_mapping: Optional[dict] = None
@@ -630,7 +630,7 @@ class _AzureSqlServerSettings(BaseSettings, DatasourcePayloadConstructor):
     )
     _type: Literal["azure_sql_server"] = PrivateAttr(default="azure_sql_server")
     
-    connection_string: Optional[str] = Field(default=None, exclude=True)
+    connection_string: Optional[str] = Field(default(None, exclude=True)
     table_schema: Optional[str] = None
     schema_max_row: Optional[int] = None
     top_n_results: Optional[int] = None
@@ -685,14 +685,14 @@ class _MongoDbSettings(BaseSettings, DatasourcePayloadConstructor):
     app_name: str
     index_name: str
     query_type: Literal["vector"] = "vector"
-    top_k: int = Field(default=5, serialization_alias="top_n_documents")
+    top_k: int = Field(default(5, serialization_alias="top_n_documents")
     strictness: int = 3
-    enable_in_domain: bool = Field(default=True, serialization_alias="in_scope")
-    content_columns: Optional[List[str]] = Field(default=None, exclude=True)
-    vector_columns: Optional[List[str]] = Field(default=None, exclude=True)
-    title_column: Optional[str] = Field(default=None, exclude=True)
-    url_column: Optional[str] = Field(default=None, exclude=True)
-    filename_column: Optional[str] = Field(default=None, exclude=True)
+    enable_in_domain: bool = Field(default(True, serialization_alias="in_scope")
+    content_columns: Optional[List[str]] = Field(default(None, exclude=True)
+    vector_columns: Optional[List[str]] = Field(default(None, exclude=True)
+    title_column: Optional[str] = Field(default(None, exclude=True)
+    url_column: Optional[str] = Field(default(None, exclude=True)
+    filename_column: Optional[str] = Field(default(None, exclude=True)
     
     
     # Constructed fields
